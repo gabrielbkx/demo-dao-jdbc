@@ -4,6 +4,7 @@ import model.dao.DaoFactory;
 import model.dao.SellerDao;
 import model.entities.Department;
 import model.entities.Seller;
+import java.util.Date;
 import java.util.List;
 
 
@@ -24,5 +25,12 @@ public class Program {
         System.out.println("Test 3: seller findAll ====: ");
         list = sellerDao.findAll();
         list.forEach(System.out::println);
+
+        System.out.println("Test 4: seller Insert: ");
+        Seller newSeller = new Seller(null,"Gabriel","gabs@gmail.com",new Date(),
+                1700.00,new Department(2,null));
+
+        sellerDao.insert(newSeller);
+        System.out.println("Inserted! new id == " + newSeller.getId());
     }
 }
